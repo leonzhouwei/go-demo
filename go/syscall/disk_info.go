@@ -9,8 +9,8 @@ import (
 // DiskStatus disk capacity status
 type DiskStatus struct {
 	All  uint64 // count of all btyes of a disk
-	Used uint64 // used of used btyes of a disk
-	Free uint64 // free of free btyes of a disk
+	Used uint64 // count of used btyes of a disk
+	Free uint64 // count of free btyes of a disk
 }
 
 func main() {
