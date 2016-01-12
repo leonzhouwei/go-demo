@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -17,16 +18,18 @@ func main() {
 	if error1 != nil {
 		log.Fatal(error1)
 	}
-	for _, line := range lines1 {
-		fmt.Println(line)
-	}
+	printLines(lines1)
 
 	fmt.Println("==========")
 	lines2, error2 := readAllLinesWithIoutil(path, "\n")
 	if error2 != nil {
 		log.Fatal(error2)
 	}
-	for _, line := range lines2 {
+	printLines(lines2)
+}
+
+func printLines(lines []string) {
+	for _, line := range lines {
 		fmt.Println(line)
 	}
 }
