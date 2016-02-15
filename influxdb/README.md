@@ -13,7 +13,7 @@ agent 监控当前机器上部署的各个 influxdb 的健康状态和相应挂�
 ## 要求
 1. 不同的 influxdb 必须使用不同的挂载点
 2. 需要在 agent 的配置文件中给出各个 influxdb 的配置文件的绝对路径
-3. 每个 influxdb 中都有一个 agent 专用的 database，名称为 > com_qiniu_pandora_agent_ping
+3. 每个 influxdb 中都有一个 agent 专用的 database，名称为 com_qiniu_pandora_agent_ping
 
 ## influxdb 监控指标
 1. 占用的 HTTP 端口号 （对应 influxdb 配置文件中 http 小节中的 bind-address 字段）
