@@ -30,7 +30,7 @@ agent 监控当前机器上部署的各个 influxdb 及其所在的挂载点，�
 和 [influxdata/telegraf](https://github.com/influxdata/telegraf) 一样，使用 [shirou/gopsutil](https://github.com/shirou/gopsutil) 的 disk 包来获取挂载点的磁盘使用状况
 
 ## 心跳的内部字段
-- diskTag       string          // influxdb 使用的挂载点的 ID
+- diskTag       string          // influxdb 使用的挂载点的 ID，基于 machine hostname 和 influxdb data dir 以及 influxdb HTTP port 生成
 - host          string          // influxdb 的 IP 地址，对应 influxdb 配置文件中 meta 小节内的 hostname 字段
 - port          string          // influxdb 的 HTTP 端口号，对应 influxdb 配置文件中 http 小节内的 bind-address 字段
 - spaceUsed     uint64          // 挂载点已用容量
