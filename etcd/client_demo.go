@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"strings"
 	"time"
 
 	"github.com/coreos/etcd/Godeps/_workspace/src/golang.org/x/net/context"
@@ -21,9 +22,17 @@ func main() {
 		log.Fatal(err)
 	}
 	kapi := client.NewKeysAPI(c)
-	resp, err := kapi.Get(context.Background(), "/foo/bar", nil)
+	resp, err := kapi.Get(context.Background(), "/foo", nil)
 	if err != nil {
-		log.Fatal(err)
+		//		fmt.Println("oops:", err)
+		msg := fmt.Sprintf("%s", err)
+		if strings.HasPrefix(msg, "100:") {
+			fmt.Println("oops:", msg)
+		}
+		_, err2 := kapi.Set(context.Background(), "foo", "bar", nil)
+		if err != nil {
+			log.Fatal(err2)
+		}
 	} else {
 		fmt.Println(resp.Node.Value)
 	}
